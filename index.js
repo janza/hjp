@@ -28,8 +28,7 @@ app.get('/q/:word', function(req, res){
             return 'http://hjp.novi-liber.hr/' + old;
         });
         table.find('a.natlink').attr('href', function(i, old) {
-            var word = cheerio(this).prevAll('b').last().text().trim().split(' ')[0];
-            return word ? '/q/' + word : 'http://hjp.novi-liber.hr/' + old;
+            return 'http://hjp.novi-liber.hr/' + old;
         });
         res.send('<html><head><link rel="search" href="/opensearch.xml" type="application/opensearchdescription+xml" title="HJP search" /></head><body>' + form+ '<table style="width: 100%">' + table.html() + '</table><script>document.getElementById(\'word\').focus()</script></body></html>');
     });
